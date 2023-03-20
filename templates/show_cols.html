@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>csv columns page</title>
+        <!-- the following style code is include from W3Schools-->
+        <link rel="stylesheet" href="/static/css/stylesheet.css"/>
+        
+        <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            th, td {
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+            </style>
+    </head>
+    <body>
+        <h1>The following are the columns of the dataset that you have been imported</h1>
+        <!--'PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
+       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'-->
+       {{my_data}}
+        <ul>
+            <table class="center">
+                {%for i in cols%}
+                <tr class="yes">
+                    <td>{{i}}</td>   
+                </tr>
+                {%endfor%}
+            </table>
+        </ul>
+        <div class="container">
+            <div class="search-box">
+                <form action="/viewing_data/" method="POST">{% csrf_token %}
+                    <label for="search">Mask you columns:</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Columns to be masked"><br><br>
+                    <input type="submit" value="Submit">
+                  </form> 
+            </div>
+    </body>
+</html>
