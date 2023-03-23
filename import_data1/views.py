@@ -94,7 +94,6 @@ def googlesheets_importing_data(request,*args,**kwargs):
     creds=None
     creds = service_account.Credentials.from_service_account_file(
                 SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-    #SAMPLE_SPREADSHEET_ID = '1542UZfstkZEevRejf3YbA_Upk5s05WK-YIPjBAl3SYY'
     SAMPLE_SPREADSHEET_ID = request.POST.get("fname")
     Sheet_range=request.POST.get('range')
     try:
